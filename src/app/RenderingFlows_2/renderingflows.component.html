@@ -30,4 +30,27 @@
       </span>
     </li>
   </ul>
+  <hr />
+  <small>Using [style] decorator</small>
+  <ul>
+    <li *ngFor="let emp of employees; let i = index">
+      <span [style.background-color]="emp.active ? 'red' : 'green'">
+        {{ i }} : {{ emp.name }}
+      </span>
+    </li>
+  </ul>
+  <hr />
+  <small>Using [ngStyle] decorator</small>
+  <ul>
+    <li *ngFor="let emp of employees; let i = index">
+      <span
+        [ngStyle]="{
+          backgroundColor: emp.active ? 'red' : 'green',
+          fontSize: emp.active ? '15px' : '10px'
+        }"
+      >
+        {{ i }} : {{ emp.name }}
+      </span>
+    </li>
+  </ul>
 </div>
