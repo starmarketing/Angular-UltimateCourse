@@ -1,13 +1,33 @@
 <div>
   <input type="text" [value]="age" (input)="handleChange($event)" />
   <div *ngIf="age.length > 2">Emad</div>
-
-  <hr>
+  <hr />
 
   <small>Using ngFor</small>
   <ul>
     <li *ngFor="let emp of employees; let i = index">
-        {{i}} : {{emp.name}}
+      {{ i }} : {{ emp.name }}
+    </li>
+  </ul>
+  <hr />
+  <small>Using class decorator for single condition</small>
+  <ul>
+    <li *ngFor="let emp of employees; let i = index">
+      <span [class.status]="emp.active"> {{ i }} : {{ emp.name }} </span>
+    </li>
+  </ul>
+  <hr />
+  <small>Using [ngClass] decorator for multiple condition</small>
+  <ul>
+    <li *ngFor="let emp of employees; let i = index">
+      <span
+        [ngClass]="{
+          'checked-in': emp.active,
+          'checked-out': !emp.active
+        }"
+      >
+        {{ i }} : {{ emp.name }}
+      </span>
     </li>
   </ul>
 </div>
