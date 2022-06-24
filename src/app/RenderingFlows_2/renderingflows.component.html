@@ -1,1 +1,13 @@
-<p>renderingflows works!</p>
+<div>
+  <input type="text" [value]="age" (input)="handleChange($event)" />
+  <div *ngIf="age.length > 2">Emad</div>
+
+  <hr>
+
+  <small>Using ngFor</small>
+  <ul>
+    <li *ngFor="let emp of employees; let i = index">
+        {{i}} : {{emp.name}}
+    </li>
+  </ul>
+</div>
