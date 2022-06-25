@@ -7,5 +7,6 @@ export interface Passenger {
   name: string;
   active: boolean;
   stamp: number | null;
+  checkedIn: boolean;
   children: Child[] | null;
 }

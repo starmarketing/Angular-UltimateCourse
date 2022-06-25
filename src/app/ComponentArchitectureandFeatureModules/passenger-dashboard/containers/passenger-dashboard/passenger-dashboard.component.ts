@@ -16,6 +16,7 @@ export class PassengerDashboardComponent implements OnInit {
         name: 'emad',
         active: true,
         stamp: 1508330494000,
+        checkedIn: true,
         children: [
           {
             name: 'Badshah',
@@ -29,6 +30,7 @@ export class PassengerDashboardComponent implements OnInit {
         active: false,
         stamp: null,
         children: null,
+        checkedIn: false,
       },
       {
         id: 2,
@@ -41,6 +43,7 @@ export class PassengerDashboardComponent implements OnInit {
             age: null,
           },
         ],
+        checkedIn: false,
       },
     ];
   }

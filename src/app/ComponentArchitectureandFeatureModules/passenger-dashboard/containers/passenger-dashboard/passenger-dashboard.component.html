@@ -1,25 +1,6 @@
-<passenger-count></passenger-count>
-<app-passenger-detail></app-passenger-detail>
-
 <h2>Airline Passengers</h2>
-<ul >
-    <li *ngFor="let pass of passenger; let i = index">
-      <span class="status">
-       {{ pass.name }}
-        <br>
-        children: {{ pass.children?.length || 0}}
-        <ul>
-            <li *ngFor="let child of pass.children; let i = index">
-              <span>
-                Name:  {{ child.name }}
-                <br>
-                Age:  {{ child.age }}
-              </span>
-            </li>
-          </ul>
-      </span>
-      <br>
-    </li>
-  </ul>
-
- 
+<passenger-count [items]="passenger"></passenger-count>
+<app-passenger-detail
+  *ngFor="let passenger of passenger"
+  [detail]="passenger"
+></app-passenger-detail>
