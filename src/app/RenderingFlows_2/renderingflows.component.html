@@ -53,4 +53,17 @@
       </span>
     </li>
   </ul>
+  <hr>
+  <small>Using PIPES decorator</small>
+  <ul>
+    <li *ngFor="let emp of employees; let i = index">
+      <span>
+        {{ i }} : {{ emp.name }}
+        <br>
+        checked-in: {{emp.stamp | date: 'MMM d, y'}}
+        <br>
+        last checked-in: {{emp.stamp? (emp.stamp  | date: 'MMM d, y' | uppercase): 'Not In Yet'}}
+      </span>
+    </li>
+  </ul>
 </div>

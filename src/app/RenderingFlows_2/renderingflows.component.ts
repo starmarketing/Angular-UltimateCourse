@@ -4,6 +4,7 @@ interface Employee{
   id: number;
   name: string;
   active: boolean;
+  stamp: number | null;
 }
 
 @Component({
@@ -26,11 +27,13 @@ export class RenderingflowsComponent implements OnInit {
       id: 1,
       name: 'emad',
       active: true,
+      stamp: 1508330494000
     },
     {
       id: 2,
       name: 'khan',
       active: false,
+      stamp: null
     },
   ];
 }
