@@ -3,19 +3,22 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { PassengerDashboardModule } from './ComponentArchitectureandFeatureModules/passenger-dashboard/passenger-dashboard.module';
 import { PropertybindingComponent } from './PropertyBinding_1/propertybinding.component';
 import { RenderingflowsComponent } from './RenderingFlows_2/renderingflows.component';
  
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PropertybindingComponent,
-    RenderingflowsComponent
+    RenderingflowsComponent, 
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    PassengerDashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

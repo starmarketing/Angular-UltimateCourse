@@ -3,6 +3,7 @@
   <div *ngIf="age.length > 2">Emad</div>
   <hr />
 
+  
   <small>Using ngFor</small>
   <ul>
     <li *ngFor="let emp of employees; let i = index">
@@ -16,6 +17,8 @@
       <span [class.status]="emp.active"> {{ i }} : {{ emp.name }} </span>
     </li>
   </ul>
+
+
   <hr />
   <small>Using [ngClass] decorator for multiple condition</small>
   <ul>
@@ -30,6 +33,8 @@
       </span>
     </li>
   </ul>
+
+
   <hr />
   <small>Using [style] decorator</small>
   <ul>
@@ -39,6 +44,8 @@
       </span>
     </li>
   </ul>
+
+
   <hr />
   <small>Using [ngStyle] decorator</small>
   <ul>
@@ -53,6 +60,8 @@
       </span>
     </li>
   </ul>
+
+
   <hr>
   <small>Using PIPES decorator</small>
   <ul>
@@ -69,7 +78,7 @@
 
 
   <hr>
-  <small>Using Save Navigation Operator</small>
+  <small>Using Safe Navigation Operator</small>
   <ul>
     <li *ngFor="let emp of employees; let i = index">
       <span>
