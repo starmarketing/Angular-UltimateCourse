@@ -8,9 +8,8 @@ import { PassengerDashboardService } from '../../passenger-dashboard.service';
   styleUrls: ['./passenger-dashboard.component.scss'],
 })
 export class PassengerDashboardComponent implements OnInit {
-  
   passenger: Passenger[] = [];
-  
+
   constructor(private passengerService: PassengerDashboardService) {}
 
   ngOnInit(): void {
@@ -26,7 +25,7 @@ export class PassengerDashboardComponent implements OnInit {
   handleEdit(event: Passenger) {
     // Immutable state change
     // It looped over every element in the parent data and changed it through object.assign
-    console.log('before: ',this.passenger);
+    console.log('before: ', this.passenger);
     this.passenger = this.passenger.map((p: Passenger) => {
       if (p.id == event.id) {
         // override the properties of passenger
@@ -34,6 +33,6 @@ export class PassengerDashboardComponent implements OnInit {
       }
       return p;
     });
-    console.log('after: ',this.passenger);
+    console.log('after: ', this.passenger);
   }
 }
