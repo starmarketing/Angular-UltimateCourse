@@ -7,3 +7,16 @@
   (remove)="handleRemove($event)"
   (edit)="handleEdit($event)"
 ></app-passenger-detail>
+
+<hr>
+
+<span class="status">
+  {{ passenger[0].name }}
+    <input
+      type="text"
+      [value]="passenger[0].name"
+      (input)="passenger[0].name = name.value"
+      #name
+    />
+</span>
+<hr />
