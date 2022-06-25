@@ -49,9 +49,23 @@ export class PassengerDashboardComponent implements OnInit {
     ];
   }
 
-  handleRemove(event: any) {
-    this.passenger = this.passenger.filter((p) => p.id !== event.id);
+  handleRemove(event: Passenger) {
+    this.passenger = this.passenger.filter((p) => {
+      return p.id !== event.id;
+    });
   }
 
-  handleEdit(event: any) {}
+  handleEdit(event: Passenger) {
+    // Immutable state change
+    // It looped over every element in the parent data and changed it through object.assign
+    console.log('before: ',this.passenger);
+    // this.passenger = this.passenger.map((p: Passenger) => {
+    //   if (p.id == event.id) {
+    //     // override the properties of passenger
+    //     p = Object.assign({}, p, event);
+    //   }
+    //   return p;
+    // });
+    console.log('after: ',this.passenger);
+  }
 }

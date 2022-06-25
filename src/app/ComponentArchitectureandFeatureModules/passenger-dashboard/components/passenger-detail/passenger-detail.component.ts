@@ -12,10 +12,10 @@ export class PassengerDetailComponent implements OnInit {
   detail!: Passenger;
 
   @Output()
-  remove: EventEmitter<Passenger> = new EventEmitter();
+  remove: EventEmitter<any> = new EventEmitter();
 
   @Output()
-  edit: EventEmitter<Passenger> = new EventEmitter();
+  edit: EventEmitter<any> = new EventEmitter();
 
   editing: boolean = false;
 
