@@ -66,4 +66,27 @@
       </span>
     </li>
   </ul>
+
+
+  <hr>
+  <small>Using Save Navigation Operator</small>
+  <ul>
+    <li *ngFor="let emp of employees; let i = index">
+      <span>
+       {{ emp.name }}
+        <br>
+        children: {{ emp.children?.length || 0}}
+        <ul>
+            <li *ngFor="let child of emp.children; let i = index">
+              <span>
+                Name:  {{ child.name }}
+                <br>
+                Age:  {{ child.age }}
+              </span>
+            </li>
+          </ul>
+      </span>
+      <br>
+    </li>
+  </ul>
 </div>
