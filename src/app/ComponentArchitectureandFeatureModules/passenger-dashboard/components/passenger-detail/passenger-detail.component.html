@@ -1,5 +1,13 @@
 <span class="status">
   {{ detail.name }}
+  <div *ngIf="editing">
+    <input
+      type="text"
+      [value]="detail.name"
+      (input)="onNameChange(name.value)"
+      #name
+    />
+  </div>
   <br />
   children: {{ detail.children?.length || 0 }}
   <ul>
@@ -11,4 +19,11 @@
       </span>
     </li>
   </ul>
+
+  <button (click)="toggleEdit()">
+    {{ editing ? "Done" : "Edit" }}
+  </button>
+
+  <button (click)="onRemove()">Remove</button>
 </span>
+<hr />

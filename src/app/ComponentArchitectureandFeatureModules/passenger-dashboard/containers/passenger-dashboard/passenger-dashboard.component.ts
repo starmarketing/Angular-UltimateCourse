@@ -9,6 +9,7 @@ import { Passenger } from '../../models/passenger.interface';
 export class PassengerDashboardComponent implements OnInit {
   constructor() {}
   passenger: Passenger[] = [];
+
   ngOnInit(): void {
     this.passenger = [
       {
@@ -33,7 +34,7 @@ export class PassengerDashboardComponent implements OnInit {
         checkedIn: false,
       },
       {
-        id: 2,
+        id: 3,
         name: 'khan',
         active: false,
         stamp: null,
@@ -47,4 +48,10 @@ export class PassengerDashboardComponent implements OnInit {
       },
     ];
   }
+
+  handleRemove(event: any) {
+    this.passenger = this.passenger.filter((p) => p.id !== event.id);
+  }
+
+  handleEdit(event: any) {}
 }
