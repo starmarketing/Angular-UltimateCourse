@@ -1,49 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 import { Passenger } from './models/passenger.interface';
+import { map } from 'rxjs/operators';
 
+const PASSENGER_API: string = 'http://localhost:3000/passengers';
 @Injectable()
 export class PassengerDashboardService {
-  constructor(private http: HttpClient) {
-    console.log(this.http);
+  constructor(private http: HttpClient) {}
+
+  getPassengers(): Observable<Passenger[]> {
+    return this.http.get(PASSENGER_API).pipe(
+      map((response) => {
+        return this.extractData(response);
+      })
+    );
   }
 
-  getPassengers(): Passenger[] {
-    return [
-      {
-        id: 1,
-        name: 'emad',
-        active: true,
-        stamp: 1508330494000,
-        checkedIn: true,
-        children: [
-          {
-            name: 'Badshah',
-            age: 20,
-          },
-        ],
-      },
-      {
-        id: 2,
-        name: 'hassan',
-        active: false,
-        stamp: null,
-        children: null,
-        checkedIn: false,
-      },
-      {
-        id: 3,
-        name: 'khan',
-        active: false,
-        stamp: null,
-        children: [
-          {
-            name: 'Khan Sahab',
-            age: null,
-          },
-        ],
-        checkedIn: false,
-      },
-    ];
+  private extractData(res: any) {
+    let body = typeof res != 'object' ? res.json() : res; // If response is a JSON use json(), If response is a String use text()
+    if (body) {
+      return body;
+    } else {
+      return {};
+    }
   }
 }
