@@ -6,6 +6,8 @@ import { PassengerDashboardComponent } from './containers/passenger-dashboard/pa
 import { PassengerDashboardService } from './passenger-dashboard.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PassengerViewerComponent } from './containers/passenger-viewer/passenger-viewer.component';
+import { PassengerFormComponent } from './components/passenger-form/passenger-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,8 +15,9 @@ import { PassengerViewerComponent } from './containers/passenger-viewer/passenge
     PassengerCountComponent,
     PassengerDetailComponent,
     PassengerViewerComponent,
+    PassengerFormComponent,
   ],
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, FormsModule],
   exports: [ PassengerViewerComponent],
   providers: [
     // in angular a service is called a provider

@@ -9,16 +9,7 @@
     />
   </div>
   <br />
-  children: {{ detail.children?.length || 0 }}
-  <ul>
-    <li *ngFor="let child of detail.children; let i = index">
-      <span>
-        Name: {{ child.name }}
-        <br />
-        Age: {{ child.age }}
-      </span>
-    </li>
-  </ul>
+   
 
   <button (click)="toggleEdit()">
     {{ editing ? "Done" : "Edit" }}

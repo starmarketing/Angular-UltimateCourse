@@ -6,28 +6,23 @@
       "active": true,
       "stamp": 1508330494000,
       "checkedIn": true,
-      "children": [
-        {
-          "name": "Badshah",
-          "age": 20
-        }
-      ]
+      "baggage": ""
     },
     {
       "id": 2,
       "name": "waleed",
       "active": false,
       "stamp": null,
-      "children": null,
+      "baggage": "",
+
       "checkedIn": false
-    }
-    ,
+    },
     {
       "id": 3,
       "name": "hannan",
       "active": false,
       "stamp": null,
-      "children": null,
+      "baggage": "",
       "checkedIn": false
     }
   ]
