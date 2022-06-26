@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Passenger } from './models/passenger.interface';
@@ -18,11 +18,21 @@ export class PassengerDashboardService {
   }
 
   updatePassenger(passenger: Passenger): Observable<Passenger[]> {
-    return this.http.put(`${PASSENGER_API}/${passenger.id}`, passenger).pipe(
-      map((response) => {
-        return this.extractData(response);
-      })
-    );
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    const options = {
+      headers: headers,
+    };
+
+    return this.http
+      .put(`${PASSENGER_API}/${passenger.id}`, passenger, options)
+      .pipe(
+        map((response) => {
+          return this.extractData(response);
+        })
+      );
   }
 
   removePassenger(passenger: Passenger): Observable<Passenger> {
