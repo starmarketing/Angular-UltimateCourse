@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Passenger } from './models/passenger.interface';
@@ -17,6 +17,16 @@ export class PassengerDashboardService {
     );
   }
 
+  // If we don't want to use OBSERVABLES we can use promise
+  getPassengersPromise(): Promise<Passenger[]> {
+    return this.http
+      .get(PASSENGER_API)
+      .toPromise()
+      .then((response) => {
+        return this.extractData(response);
+      });
+  }
+
   updatePassenger(passenger: Passenger): Observable<Passenger[]> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -33,6 +43,23 @@ export class PassengerDashboardService {
           return this.extractData(response);
         })
       );
+  }
+
+  updatePassengerPromise(passenger: Passenger): Promise<Passenger[]> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    const options = {
+      headers: headers,
+    };
+
+    return this.http
+      .put(`${PASSENGER_API}/${passenger.id}`, passenger, options)
+      .toPromise()
+      .then((response) => {
+        return this.extractData(response);
+      });
   }
 
   removePassenger(passenger: Passenger): Observable<Passenger> {
