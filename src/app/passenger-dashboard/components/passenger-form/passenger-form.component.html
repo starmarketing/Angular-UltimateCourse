@@ -1,3 +1,15 @@
-<form>
-    Form! {{detail | json}}
+<small>TEMPLATE DRIVEN FORMS</small>
+<form #form="ngForm" novalidate>
+  Form! {{ detail | json }}
+  <div>
+    Passenger name:
+    <input type="text" name="name" [ngModel]="detail?.name" />
+  </div>
+
+  <div>
+    Passenger ID:
+    <input type="number" name="id" [ngModel]="detail?.id" />
+  </div>
+
+  {{ form.value | json }}
 </form>
