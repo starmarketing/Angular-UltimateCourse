@@ -1,18 +1,24 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Passenger } from './models/passenger.interface';
 import { map } from 'rxjs/operators';
+
+import 'rxjs/add/observable/throw';
 
 const PASSENGER_API: string = 'http://localhost:3000/passengers';
 @Injectable()
 export class PassengerDashboardService {
   constructor(private http: HttpClient) {}
 
-  getPassengers(): Observable<Passenger[]> {
+  getPassengers(): Observable<any> {
     return this.http.get(PASSENGER_API).pipe(
       map((response) => {
         return this.extractData(response);
+      }),
+      catchError((error) => {
+        throw 'Something went wrong: ' + error; // Use console.log(err) for detail
       })
     );
   }
@@ -24,6 +30,9 @@ export class PassengerDashboardService {
       .toPromise()
       .then((response) => {
         return this.extractData(response);
+      })
+      .catch((error) => {
+        return 'Something went wrong: ' + error.message;
       });
   }
 
@@ -78,4 +87,7 @@ export class PassengerDashboardService {
       return {};
     }
   }
+}
+function throwError(arg0: () => Error): any {
+  throw new Error('Function not implemented.');
 }
