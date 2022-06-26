@@ -17,6 +17,22 @@ export class PassengerDashboardService {
     );
   }
 
+  updatePassenger(passenger: Passenger): Observable<Passenger[]> {
+    return this.http.put(`${PASSENGER_API}/${passenger.id}`, passenger).pipe(
+      map((response) => {
+        return this.extractData(response);
+      })
+    );
+  }
+
+  removePassenger(passenger: Passenger): Observable<Passenger> {
+    return this.http.delete(`${PASSENGER_API}/${passenger.id}`).pipe(
+      map((response) => {
+        return this.extractData(response);
+      })
+    );
+  }
+
   private extractData(res: any) {
     let body = typeof res != 'object' ? res.json() : res; // If response is a JSON use json(), If response is a String use text()
     if (body) {

@@ -13,31 +13,33 @@ export class PassengerDashboardComponent implements OnInit {
   constructor(private passengerService: PassengerDashboardService) {}
 
   ngOnInit(): void {
-    this.passengerService
-    .getPassengers()
-    .subscribe((data: Passenger[]) => {
-      console.log(data);
+    this.passengerService.getPassengers().subscribe((data: Passenger[]) => {
       this.passenger = data;
     });
   }
 
   handleRemove(event: Passenger) {
-    this.passenger = this.passenger.filter((p) => {
-      return p.id !== event.id;
+
+    this.passengerService.removePassenger(event).subscribe((data: Passenger) => {
+      this.passenger = this.passenger.filter((p) => {
+        return p.id !== event.id;
+      });
     });
+
+   
   }
 
   handleEdit(event: Passenger) {
-    // Immutable state change
-    // It looped over every element in the parent data and changed it through object.assign
-    console.log('before: ', this.passenger);
-    this.passenger = this.passenger.map((p: Passenger) => {
-      if (p.id == event.id) {
-        // override the properties of passenger
-        p = Object.assign({}, p, event);
-      }
-      return p;
-    });
-    console.log('after: ', this.passenger);
+    this.passengerService
+      .updatePassenger(event)
+      .subscribe((data: Passenger[]) => {
+        this.passenger = this.passenger.map((p: Passenger) => {
+          if (p.id == event.id) {
+            // override the properties of passenger
+            p = Object.assign({}, p, event);
+          }
+          return p;
+        });
+      });
   }
 }
