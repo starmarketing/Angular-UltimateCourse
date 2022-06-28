@@ -23,12 +23,11 @@
     </label>
     <label>
         <input
-        type="radio"
-        [value]="false"
+        type="checkbox"
         name="checkedIn"
         [ngModel]="detail?.checkedIn"
         (ngModelChange)="toggleCheckIn($event)"
-        />No
+        />{{detail?.checkedIn}}
     </label>
   </div>
 
