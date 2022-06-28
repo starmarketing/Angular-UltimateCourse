@@ -2,11 +2,11 @@
 
 <div class="app">
   <a
-    routerLink="/"
+    *ngFor="let item of nav"
+    [routerLink]="item.link"
+    [routerLinkActiveOptions]="{ exact: item.exact }"
     routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    >Home</a
+    >{{ item.name }}</a
   >
-  <a routerLink="/oops" routerLinkActive="active">404</a>
   <router-outlet></router-outlet>
 </div>
