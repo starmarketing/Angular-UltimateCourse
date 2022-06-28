@@ -1,12 +1,11 @@
 {
   "passengers": [
     {
+      "fullname": "Haseeb Khan",
       "id": 1,
-      "fullname": "emad",
-      "active": true,
-      "checkInDate": 1508330494000,
       "checkedIn": true,
-      "baggage": "hold-only"
+      "baggage": "hold-hand",
+      "checkInDate": 1508330494000
     },
     {
       "id": 2,

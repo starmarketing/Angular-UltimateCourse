@@ -1,5 +1,9 @@
 <small>TEMPLATE DRIVEN FORMS</small>
-<form #form="ngForm" novalidate>
+<form
+  #form="ngForm"
+  novalidate
+  (ngSubmit)="handleSubmit(form.value, form.valid!)"
+>
   <!-- <div>
     Passenger name:
     <input type="text" name="name" [ngModel]="detail?.fullname" />
@@ -8,12 +12,11 @@
     Passenger name:
     <input
       type="text"
-      name="name"
+      name="fullname"
       required
       #fullname="ngModel"
       [ngModel]="detail?.fullname"
     />
-    {{ fullname.errors | json }}
     <div
       *ngIf="fullname.errors?.['required']
     && fullname.dirty
@@ -71,7 +74,7 @@
 
   <div>
     Luggage:
-    <select name="baggage" [ngModel]="detail?.baggage">
+    <!-- <select name="baggage" [ngModel]="detail?.baggage">
       <option
         *ngFor="let item of baggage"
         [value]="item.key"
@@ -79,7 +82,7 @@
       >
         {{ item.value }}
       </option>
-    </select>
+    </select> -->
 
     <small>another option</small>
     <select name="baggage" [ngModel]="detail?.baggage">
@@ -89,7 +92,5 @@
     </select>
   </div>
 
-   <button type="submit" [disabled]="form.invalid">
-    UPDATE PASSENGER
-   </button>
+  <button type="submit" [disabled]="form.invalid">UPDATE PASSENGER</button>
 </form>

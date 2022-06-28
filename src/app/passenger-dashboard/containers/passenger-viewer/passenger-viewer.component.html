@@ -1,1 +1,4 @@
-<passenger-form [detail]="passenger"></passenger-form>
+<passenger-form
+  [detail]="passenger"
+  (update)="onUpdatePassenger($event)"
+></passenger-form>
