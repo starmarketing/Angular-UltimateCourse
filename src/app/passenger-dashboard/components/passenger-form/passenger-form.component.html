@@ -1,6 +1,5 @@
 <small>TEMPLATE DRIVEN FORMS</small>
 <form #form="ngForm" novalidate>
-  Form! {{ detail | json }}
   <!-- <div>
     Passenger name:
     <input type="text" name="name" [ngModel]="detail?.fullname" />
@@ -90,11 +89,7 @@
     </select>
   </div>
 
-  {{ form.value | json }}
-  <div>
-    {{ form.valid | json }}
-  </div>
-  <div>
-    {{ form.invalid | json }}
-  </div>
+   <button type="submit" [disabled]="form.invalid">
+    UPDATE PASSENGER
+   </button>
 </form>
