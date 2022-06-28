@@ -40,7 +40,7 @@ export class PassengerDetailComponent implements OnInit, OnChanges {
   }
 
   onNameChange(value: string) {
-    this.detail.name = value;
+    this.detail.fullname = value;
   }
 
   toggleEdit() {

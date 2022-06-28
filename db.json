@@ -2,26 +2,26 @@
   "passengers": [
     {
       "id": 1,
-      "name": "emad",
+      "fullname": "emad",
       "active": true,
-      "stamp": 1508330494000,
+      "checkInDate": 1508330494000,
       "checkedIn": true,
       "baggage": ""
     },
     {
       "id": 2,
-      "name": "waleed",
+      "fullname": "waleed",
       "active": false,
-      "stamp": null,
+      "checkInDate": null,
       "baggage": "",
 
       "checkedIn": false
     },
     {
       "id": 3,
-      "name": "hannan",
+      "fullname": "hannan",
       "active": false,
-      "stamp": null,
+      "checkInDate": null,
       "baggage": "",
       "checkedIn": false
     }

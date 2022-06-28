@@ -1,9 +1,9 @@
 <span class="status">
-  {{ detail.name }}
+  {{ detail.fullname }}
   <div *ngIf="editing">
     <input
       type="text"
-      [value]="detail.name"
+      [value]="detail.fullname"
       (input)="onNameChange(name.value)"
       #name
     />

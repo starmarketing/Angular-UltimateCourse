@@ -1,8 +1,8 @@
 export interface Passenger {
   id: number;
-  name: string;
-  active: boolean;
-  stamp: number | null;
+  fullname: string;
   checkedIn: boolean;
+  checkInDate?: number ;
   baggage: string;
+  active: boolean;
 }
