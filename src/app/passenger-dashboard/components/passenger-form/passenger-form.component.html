@@ -19,23 +19,42 @@
         name="checkedIn"
         [ngModel]="detail?.checkedIn"
         (ngModelChange)="toggleCheckIn($event)"
-        />Yes
+      />Yes
     </label>
     <label>
-        <input
+      <input
         type="checkbox"
         name="checkedIn"
         [ngModel]="detail?.checkedIn"
         (ngModelChange)="toggleCheckIn($event)"
-        />{{detail?.checkedIn}}
+      />{{ detail?.checkedIn }}
     </label>
   </div>
 
   <div *ngIf="form.value.checkedIn">
     Check In Date:
-    <input type="number" name="checkInDate" [ngModel]="detail?.checkInDate">
+    <input type="number" name="checkInDate" [ngModel]="detail?.checkInDate" />
   </div>
 
+  <div>
+    Luggage:
+    <select name="baggage" [ngModel]="detail?.baggage">
+      <option
+        *ngFor="let item of baggage"
+        [value]="item.key"
+        [selected]="item.key === detail?.baggage"
+      >
+        {{ item.value }}
+      </option>
+    </select>
+
+    <small>another option</small>
+    <select name="baggage" [ngModel]="detail?.baggage">
+      <option *ngFor="let item of baggage" [ngValue]="item.key">
+        {{ item.value }}
+      </option>
+    </select>
+  </div>
 
   {{ form.value | json }}
 </form>
